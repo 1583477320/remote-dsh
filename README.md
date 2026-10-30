@@ -46,13 +46,27 @@ DSH 桌面壳的页面来自自定义 scheme `dsh-app://app`，而远端 `dsh we
 
 ## 安装
 
-### 从本地目录安装（开发）
+### 从 GitHub 安装（推荐）
 
 ```sh
-git clone git@github.com:1583477320/remote-dsh.git
+dsh plugin --profile desktop add github:1583477320/remote-dsh
+```
+
+装完**完全退出 DSH 桌面应用**（托盘也要退）再打开，左侧出现「远程 DSH」。
+
+- 依赖 `ssh2` 由安装器一并装好；
+- 如果你的 dsh 版本不接受 git 规格，用下面的本地克隆方式；
+- 本包**暂未发布到 npm**（registry 上的 `dsh-remote-panel` 属于另一位作者的不同项目），所以不要用 `add dsh-remote-panel`。
+
+### 从本地克隆安装（开发 / 离线）
+
+```sh
+git clone https://github.com/1583477320/remote-dsh.git
 cd remote-dsh
 dsh plugin --profile desktop add link:$(pwd)
 ```
+
+`link:` 会建软链指向仓库目录：改代码后**完全退出应用再打开**即生效（客户端 bundle 带 rev，必须重启才会刷新）。
 
 ### 手动安装（等价做法）
 
