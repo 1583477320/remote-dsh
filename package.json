@@ -1,5 +1,5 @@
 {
-  "name": "dsh-remote-panel",
+  "name": "dsh-remote-panel-ssh",
   "version": "0.1.0",
   "description": "Embed a remote DeepSeek Harness inside the desktop app: SSH bootstrap, on-demand remote dsh install, loopback tunnel and a same-machine gateway that serves the remote UI to a panel iframe.",
   "type": "module",

@@ -46,17 +46,23 @@ DSH 桌面壳的页面来自自定义 scheme `dsh-app://app`，而远端 `dsh we
 
 ## 安装
 
-### 从 GitHub 安装（推荐）
+### 从 npm 安装（推荐）
+
+```sh
+dsh plugin --profile desktop add dsh-remote-panel-ssh
+```
+
+装完**完全退出 DSH 桌面应用**（托盘也要退）再打开，左侧出现「远程 DSH」。依赖 `ssh2` 由安装器一并装好。
+
+> 名字是 `dsh-remote-panel-ssh`：registry 上的 `dsh-remote-panel` 属于另一位作者的另一个项目，`dsh-remote-ssh` / `dsh-remote-desktop` 也都已被占用。
+
+### 从 GitHub 安装（备选）
 
 ```sh
 dsh plugin --profile desktop add github:1583477320/remote-dsh
 ```
 
-装完**完全退出 DSH 桌面应用**（托盘也要退）再打开，左侧出现「远程 DSH」。
-
-- 依赖 `ssh2` 由安装器一并装好；
-- 如果你的 dsh 版本不接受 git 规格，用下面的本地克隆方式；
-- 本包**暂未发布到 npm**（registry 上的 `dsh-remote-panel` 属于另一位作者的不同项目），所以不要用 `add dsh-remote-panel`。
+国内网络直连 GitHub 可能超时；这种情况下优先用上面的 npm 方式。
 
 ### 从本地克隆安装（开发 / 离线）
 
@@ -73,7 +79,7 @@ dsh plugin --profile desktop add link:$(pwd)
 1. 把本仓库放到 profile 的 `node_modules` 下：
 
    ```sh
-   cp -r . ~/.dsh/profiles/desktop/node_modules/dsh-remote-panel
+   cp -r . ~/.dsh/profiles/desktop/node_modules/dsh-remote-panel-ssh
    ```
 
 2. 在 `~/.dsh/profiles/desktop/cordis.patch.yml` 末尾追加：
@@ -81,7 +87,7 @@ dsh plugin --profile desktop add link:$(pwd)
    ```yaml
    - insert:
        - id: remote-dsh
-         name: dsh-remote-panel
+         name: dsh-remote-panel-ssh
    ```
 
 3. 完全退出 DSH 桌面应用（托盘也要退）后重新打开，左侧出现「远程 DSH」。

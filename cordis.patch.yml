@@ -5,4 +5,4 @@
 # served at /plugins/<id>/client.js) load in the web GUI.
 - insert:
     - id: remote-dsh
-      name: dsh-remote-panel
+      name: dsh-remote-panel-ssh
