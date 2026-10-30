@@ -1,0 +1,8 @@
+# dsh-remote-panel bundle patch: inserts the dual-face plugin row into the
+# web profile roster. The node half (exports ".") runs in the host process
+# (SSH sessions, tunnel, gateway, /api/remote-dsh routes); the `dsh.client`
+# declaration in package.json makes the browser half (exports "./client",
+# served at /plugins/<id>/client.js) load in the web GUI.
+- insert:
+    - id: remote-dsh
+      name: dsh-remote-panel
